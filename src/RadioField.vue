@@ -10,7 +10,7 @@
             :checked="checkedValue === value"
             @change="update">
 
-        <label :for="$attrs.id || hash" :class="{[computedLabelClass]: true}">
+        <label :for="$attrs.id || hash" :class="{[computedLabelClass]: true, [labelClass]: true}">
             <slot>{{ label }}</slot>
         </label>
 

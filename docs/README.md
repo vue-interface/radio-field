@@ -1,4 +1,4 @@
-# TextareaField
+# RadioField
 
 [[toc]]
 
@@ -14,4 +14,4 @@ Yarn
 
 CDN
 
-    https://cdn.jsdelivr.net/npm/<%= pgk.name %>@<%= pkg.version %>/dist/TextareaField.min.js
+    https://cdn.jsdelivr.net/npm/<%= pgk.name %>@<%= pkg.version %>/dist/RadioField.min.js

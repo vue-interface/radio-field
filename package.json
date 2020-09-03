@@ -23,7 +23,7 @@
     "url": "git+https://github.com/vue-interface/radio-field.git"
   },
   "keywords": [
-    "Textarea",
+    "Radio",
     "Field",
     "Vue",
     "Component",
