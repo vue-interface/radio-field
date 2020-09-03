@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/radio-field",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "A Vue radio field component.",
   "main": "index.js",
   "scripts": {
