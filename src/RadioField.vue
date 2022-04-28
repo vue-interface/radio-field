@@ -1,5 +1,5 @@
 <template>
-    <div :class="{'custom-radio': custom, [controlClass]: !!controlClass, [inlineClass]: inline}">
+    <div :class="{[controlClass]: !!controlClass, [inlineClass]: inline}">
         <input
             :id="$attrs.id || hash"
             ref="field"
@@ -36,8 +36,7 @@
 </template>
 
 <script>
-import FormControl from '@vue-interface/form-control';
-import { prefix } from '@vue-interface/utils';
+import { FormControl } from '@vue-interface/form-control';
 
 export default {
 
@@ -111,7 +110,7 @@ export default {
         },
 
         computedLabelClass() {
-            return prefix('label', this.controlClass);
+            return `${this.controlClass}-label`;
         },
 
         hash() {
@@ -119,13 +118,22 @@ export default {
         },
 
         inputClass() {
-            return prefix('input', this.controlClass);
+            return `${this.controlClass}-input`;
         },
 
         inlineClass() {
-            return this.inline ? prefix('inline', this.controlClass) : '';
+            return this.inline && `${this.controlClass}-inline`;
         }
+        /*
 
+            <div class="form-check">
+                <input type="radio" name="radio" class="form-check-input" id="defaultRadio1" checked>
+                <label class="form-check-label" for="defaultRadio1">
+                    Default radio
+                </label>
+            </div>
+            
+            */
     },
 
     methods: {

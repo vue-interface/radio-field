@@ -1,2 +1,5 @@
-import RadioField from './src/RadioField';
-export default RadioField;
+import RadioField from './src/RadioField.vue';
+
+export {
+    RadioField
+};
