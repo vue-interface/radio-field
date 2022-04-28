@@ -36,24 +36,9 @@
 
             <hr class="my-6">
 
-            <h3 class="text-3xl mb-3">Colors</h3>
-
-            <radio-field name="colors" label="Primary" text-white bg-primary></radio-field>
-            <radio-field name="colors" label="Secondary" text-white bg-secondary></radio-field>
-            <radio-field name="colors" label="Success" text-white bg-success></radio-field>
-            <radio-field name="colors" label="Danger" text-white bg-danger></radio-field>
-            <radio-field name="colors" label="Warning" text-white bg-warning></radio-field>
-            <radio-field name="colors" label="Info" text-white bg-info></radio-field>
-            <radio-field name="colors" label="Dark" text-light bg-dark></radio-field>
-            <radio-field name="colors" label="Muted" text-dark bg-muted></radio-field>
-            <radio-field name="colors" label="White" text-dark bg-white></radio-field>
-
-            <hr class="my-6">
-
             <h3 class="text-3xl mb-3">Validation</h3>
 
             <radio-field label="Single Inline Error" required error="This is an inline error."></radio-field>
-
             <radio-field name="multiple" label="Multiple Errors From Object" :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"></radio-field>
         </form>
 

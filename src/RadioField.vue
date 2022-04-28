@@ -52,7 +52,6 @@ export default {
     },
 
     props: {
-
         /**
          * An array of event names that correlate with callback functions
          *
@@ -95,7 +94,6 @@ export default {
          * @property Function
          */
         inline: Boolean
-
     },
 
     computed: {
@@ -124,26 +122,13 @@ export default {
         inlineClass() {
             return this.inline && `${this.controlClass}-inline`;
         }
-        /*
-
-            <div class="form-check">
-                <input type="radio" name="radio" class="form-check-input" id="defaultRadio1" checked>
-                <label class="form-check-label" for="defaultRadio1">
-                    Default radio
-                </label>
-            </div>
-            
-            */
     },
 
     methods: {
-
         update(event) {
             this.$emit('change', event.target.value);
             this.$emit('input', event);
         }
-
     }
-
 };
 </script>
