@@ -48,8 +48,7 @@
   },
   "homepage": "https://github.com/vue-interface/radio-field/docs",
   "dependencies": {
-    "@vue-interface/form-control": "^1.0.0-beta.9",
-    "@vue-interface/sizeable": "^2.0.0-beta.8"
+    "@vue-interface/form-control": "^1.0.0-beta.9"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
