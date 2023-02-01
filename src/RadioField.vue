@@ -1,44 +1,8 @@
-<template>
-    <div :class="{[controlClass]: !!controlClass, [inlineClass]: inline}">
-        <input
-            :id="$attrs.id || hash"
-            ref="field"
-            v-bind-events
-            v-bind="controlAttributes"
-            type="radio"
-            :value="value"
-            :checked="checkedValue === value"
-            @change="update">
-
-        <label :for="$attrs.id || hash" :class="{[computedLabelClass]: true, [labelClass]: true}">
-            <slot>{{ label }}</slot>
-        </label>
-
-        <slot name="feedback">
-            <div 
-                v-if="invalidFeedback"
-                class="invalid-feedback"
-                invalid
-                v-html="invalidFeedback" />
-            <div 
-                v-else-if="validFeedback"
-                class="valid-feedback"
-                valid
-                v-html="validFeedback" />
-        </slot>
-
-        <slot name="help">
-            <small v-if="helpText" ref="help">
-                {{ helpText }}
-            </small>
-        </slot>
-    </div>
-</template>
-
 <script>
 import { FormControl } from '@vue-interface/form-control';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
 
     name: 'RadioField',
 
@@ -46,24 +10,7 @@ export default {
         FormControl,
     ],
 
-    model: {
-        prop: 'checkedValue',
-        event: 'change'
-    },
-
     props: {
-        /**
-         * An array of event names that correlate with callback functions
-         *
-         * @property Function
-         */
-        bindEvents: {
-            type: Array,
-            default() {
-                return ['focus', 'blur', 'input', 'click', 'keyup', 'keydown', 'progress'];
-            }
-        },
-
         /**
          * The checked values
          *
@@ -79,11 +26,12 @@ export default {
         checkedValue: [Boolean, Number, String, Object],
 
         /**
-         * The class name assigned to the control element
+         * The default class name assigned to the control element
          *
-         * @property String
+         * @param {String}
+         * @default 'form-check'
          */
-        defaultControlClass: {
+         defaultControlClass: {
             type: String,
             default: 'form-check'
         },
@@ -93,7 +41,9 @@ export default {
          *
          * @property Function
          */
-        inline: Boolean
+        inline: {
+            type: Boolean,
+        },
     },
 
     computed: {
@@ -121,14 +71,59 @@ export default {
 
         inlineClass() {
             return this.inline && `${this.controlClass}-inline`;
-        }
+        },
     },
 
     methods: {
         update(event) {
-            this.$emit('change', event.target.value);
-            this.$emit('input', event);
+            this.$emit('update:modelValue', event.target.value);
         }
     }
-};
+
+});
 </script>
+
+<template>
+    <div :class="formGroupClasses, {[controlClass]: !!controlClass, [inlineClass]: inline}">
+        <input
+            :id="id"
+            ref="field"
+            v-bind-events
+            v-bind="controlAttributes"
+            type="radio"
+            :checked="checkedValue === checked"
+            @update:modelValue="update"
+            @change="update">
+
+            <slot name="label">
+                <label
+                    v-if="label"
+                    ref="label"
+                    :for="id"
+                    :class="labelClass"
+                    @click="focus"
+                    v-html="label" />
+            </slot>
+
+        <slot name="feedback">
+            <div 
+                v-if="invalidFeedback"
+                class="invalid-feedback"
+                invalid
+                v-html="invalidFeedback" />
+            <div 
+                v-else-if="validFeedback"
+                class="valid-feedback"
+                valid
+                v-html="validFeedback" />
+        </slot>
+
+        <slot name="help">
+            <small v-if="helpText" ref="help">
+                {{ helpText }}
+            </small>
+        </slot>
+    </div>
+</template>
+
+
