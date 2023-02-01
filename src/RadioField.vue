@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { FormControl } from '@vue-interface/form-control';
 import { defineComponent } from 'vue';
 
@@ -75,7 +75,7 @@ export default defineComponent({
     },
 
     methods: {
-        update(event) {
+        update(event: any) {
             this.$emit('update:modelValue', event.target.value);
         }
     }

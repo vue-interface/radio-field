@@ -1,5 +1,5 @@
 <script lang="ts">
-import { RadioField } from '../index.ts';
+import { RadioField } from '../index';
 
 export default {
     components: {

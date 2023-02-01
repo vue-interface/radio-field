@@ -1,4 +1,3 @@
-export default _sfc_main;
 declare const _sfc_main: import("vue").DefineComponent<{
     /**
      * The checked values
@@ -13,9 +12,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
      */
     checkedValue: (BooleanConstructor | StringConstructor | ObjectConstructor | NumberConstructor)[];
     /**
-     * The class name assigned to the control element
+     * The default class name assigned to the control element
      *
-     * @property String
+     * @param {String}
+     * @default 'form-check'
      */
     defaultControlClass: {
         type: StringConstructor;
@@ -26,8 +26,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
      *
      * @property Function
      */
-    inline: BooleanConstructor;
-}, any, any, {
+    inline: {
+        type: BooleanConstructor;
+    };
+}, unknown, unknown, {
     controlClasses(): {
         [x: number]: boolean;
         "is-valid": boolean;
@@ -45,13 +47,13 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: boolean;
     };
     animated: {
-        type: BooleanConstructor; /**
-         * The checked values
-         *
-         * @property String
-         */
+        type: BooleanConstructor;
         default: () => any;
-    };
+    }; /**
+     * The checked value
+     *
+     * @property String
+     */
     nativeEvents: {
         type: ArrayConstructor;
         default(): string[];
@@ -305,9 +307,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
      */
     checkedValue: (BooleanConstructor | StringConstructor | ObjectConstructor | NumberConstructor)[];
     /**
-     * The class name assigned to the control element
+     * The default class name assigned to the control element
      *
-     * @property String
+     * @param {String}
+     * @default 'form-check'
      */
     defaultControlClass: {
         type: StringConstructor;
@@ -318,9 +321,12 @@ declare const _sfc_main: import("vue").DefineComponent<{
      *
      * @property Function
      */
-    inline: BooleanConstructor;
+    inline: {
+        type: BooleanConstructor;
+    };
 }>>, {
     defaultControlClass: string;
     inline: boolean;
     checked: boolean;
 }>;
+export default _sfc_main;
