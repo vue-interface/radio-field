@@ -1,14 +1,15 @@
-import { defineComponent as C, resolveDirective as P, openBlock as l, createElementBlock as d, normalizeClass as g, withDirectives as Y, createElementVNode as q, mergeProps as J, renderSlot as p, createCommentVNode as v, toDisplayString as K } from "vue";
-const h = {};
-function c(...e) {
+import { defineComponent as C, resolveDirective as ze, openBlock as m, createElementBlock as g, normalizeClass as T, withDirectives as Be, createElementVNode as N, mergeProps as Te, vModelRadio as Ne, renderSlot as j, createTextVNode as Ie, toDisplayString as I, createCommentVNode as L } from "vue";
+const p = {};
+function s(...e) {
   if (!e.length)
-    return h;
-  const [t, u] = e;
-  return typeof t == "string" ? typeof h[t] < "u" ? h[t] : u : Array.isArray(t) ? t.reduce((i, s) => Object.assign(i, {
-    [s]: h[s]
-  }), {}) : Object.assign(h, ...e);
+    return p;
+  const [t, r] = e;
+  return typeof t == "string" ? typeof p[t] < "u" ? p[t] : r : Array.isArray(t) ? t.reduce((i, o) => Object.assign(i, {
+    //@ts-ignore
+    [o]: p[o]
+  }), {}) : Object.assign(p, ...e);
 }
-const W = C({
+const ne = C({
   props: {
     dropShadow: {
       type: [Boolean, String],
@@ -37,71 +38,190 @@ const W = C({
     }
   }
 });
-var Q = typeof global == "object" && global && global.Object === Object && global;
-const X = Q;
-var _ = typeof self == "object" && self && self.Object === Object && self, ee = X || _ || Function("return this")();
-const te = ee;
-var ue = te.Symbol;
-const r = ue;
-var $ = Object.prototype, ie = $.hasOwnProperty, se = $.toString, f = r ? r.toStringTag : void 0;
-function ne(e) {
-  var t = ie.call(e, f), u = e[f];
+var Le = typeof global == "object" && global && global.Object === Object && global;
+const oe = Le;
+var Ve = typeof self == "object" && self && self.Object === Object && self, De = oe || Ve || Function("return this")();
+const a = De;
+var Me = a.Symbol;
+const d = Me;
+var se = Object.prototype, Re = se.hasOwnProperty, Ue = se.toString, b = d ? d.toStringTag : void 0;
+function Pe(e) {
+  var t = Re.call(e, b), r = e[b];
   try {
-    e[f] = void 0;
+    e[b] = void 0;
     var i = !0;
   } catch {
   }
-  var s = se.call(e);
-  return i && (t ? e[f] = u : delete e[f]), s;
+  var o = Ue.call(e);
+  return i && (t ? e[b] = r : delete e[b]), o;
 }
-var re = Object.prototype, ae = re.toString;
-function oe(e) {
-  return ae.call(e);
+var Ze = Object.prototype, Ge = Ze.toString;
+function He(e) {
+  return Ge.call(e);
 }
-var le = "[object Null]", de = "[object Undefined]", y = r ? r.toStringTag : void 0;
-function he(e) {
-  return e == null ? e === void 0 ? de : le : y && y in Object(e) ? ne(e) : oe(e);
+var _e = "[object Null]", qe = "[object Undefined]", V = d ? d.toStringTag : void 0;
+function f(e) {
+  return e == null ? e === void 0 ? qe : _e : V && V in Object(e) ? Pe(e) : He(e);
 }
-function ce(e) {
+function S(e) {
   return e != null && typeof e == "object";
 }
-var fe = "[object Symbol]";
-function pe(e) {
-  return typeof e == "symbol" || ce(e) && he(e) == fe;
+var We = "[object Symbol]";
+function Ye(e) {
+  return typeof e == "symbol" || S(e) && f(e) == We;
 }
-function ve(e, t) {
-  for (var u = -1, i = e == null ? 0 : e.length, s = Array(i); ++u < i; )
-    s[u] = t(e[u], u, e);
-  return s;
+function Je(e, t) {
+  for (var r = -1, i = e == null ? 0 : e.length, o = Array(i); ++r < i; )
+    o[r] = t(e[r], r, e);
+  return o;
 }
-var be = Array.isArray;
-const Ce = be;
-var ge = 1 / 0, m = r ? r.prototype : void 0, E = m ? m.toString : void 0;
-function j(e) {
+var Ke = Array.isArray;
+const ae = Ke;
+var Qe = 1 / 0, D = d ? d.prototype : void 0, M = D ? D.toString : void 0;
+function le(e) {
   if (typeof e == "string")
     return e;
-  if (Ce(e))
-    return ve(e, j) + "";
-  if (pe(e))
-    return E ? E.call(e) : "";
+  if (ae(e))
+    return Je(e, le) + "";
+  if (Ye(e))
+    return M ? M.call(e) : "";
   var t = e + "";
-  return t == "0" && 1 / e == -ge ? "-0" : t;
+  return t == "0" && 1 / e == -Qe ? "-0" : t;
 }
-function x(e) {
-  return e == null ? "" : j(e);
+function B(e) {
+  var t = typeof e;
+  return e != null && (t == "object" || t == "function");
 }
-function ye(e, t, u, i) {
-  var s = -1, a = e == null ? 0 : e.length;
-  for (i && a && (u = e[++s]); ++s < a; )
-    u = t(u, e[s], s, e);
-  return u;
+var Xe = "[object AsyncFunction]", et = "[object Function]", tt = "[object GeneratorFunction]", rt = "[object Proxy]";
+function ue(e) {
+  if (!B(e))
+    return !1;
+  var t = f(e);
+  return t == et || t == tt || t == Xe || t == rt;
 }
-function me(e) {
+var it = a["__core-js_shared__"];
+const x = it;
+var R = function() {
+  var e = /[^.]+$/.exec(x && x.keys && x.keys.IE_PROTO || "");
+  return e ? "Symbol(src)_1." + e : "";
+}();
+function nt(e) {
+  return !!R && R in e;
+}
+var ot = Function.prototype, st = ot.toString;
+function u(e) {
+  if (e != null) {
+    try {
+      return st.call(e);
+    } catch {
+    }
+    try {
+      return e + "";
+    } catch {
+    }
+  }
+  return "";
+}
+var at = /[\\^$.*+?()[\]{}|]/g, lt = /^\[object .+?Constructor\]$/, ut = Function.prototype, ct = Object.prototype, dt = ut.toString, ft = ct.hasOwnProperty, ht = RegExp(
+  "^" + dt.call(ft).replace(at, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"
+);
+function pt(e) {
+  if (!B(e) || nt(e))
+    return !1;
+  var t = ue(e) ? ht : lt;
+  return t.test(u(e));
+}
+function bt(e, t) {
+  return e == null ? void 0 : e[t];
+}
+function y(e, t) {
+  var r = bt(e, t);
+  return pt(r) ? r : void 0;
+}
+var vt = y(a, "WeakMap");
+const O = vt;
+var yt = 9007199254740991;
+function ce(e) {
+  return typeof e == "number" && e > -1 && e % 1 == 0 && e <= yt;
+}
+function mt(e) {
+  return e != null && ce(e.length) && !ue(e);
+}
+var gt = Object.prototype;
+function de(e) {
+  var t = e && e.constructor, r = typeof t == "function" && t.prototype || gt;
+  return e === r;
+}
+var jt = "[object Arguments]";
+function U(e) {
+  return S(e) && f(e) == jt;
+}
+var fe = Object.prototype, Ct = fe.hasOwnProperty, St = fe.propertyIsEnumerable, At = U(function() {
+  return arguments;
+}()) ? U : function(e) {
+  return S(e) && Ct.call(e, "callee") && !St.call(e, "callee");
+};
+const xt = At;
+function kt() {
+  return !1;
+}
+var he = typeof exports == "object" && exports && !exports.nodeType && exports, P = he && typeof module == "object" && module && !module.nodeType && module, Et = P && P.exports === he, Z = Et ? a.Buffer : void 0, Ot = Z ? Z.isBuffer : void 0, $t = Ot || kt;
+const Ft = $t;
+var wt = "[object Arguments]", zt = "[object Array]", Bt = "[object Boolean]", Tt = "[object Date]", Nt = "[object Error]", It = "[object Function]", Lt = "[object Map]", Vt = "[object Number]", Dt = "[object Object]", Mt = "[object RegExp]", Rt = "[object Set]", Ut = "[object String]", Pt = "[object WeakMap]", Zt = "[object ArrayBuffer]", Gt = "[object DataView]", Ht = "[object Float32Array]", _t = "[object Float64Array]", qt = "[object Int8Array]", Wt = "[object Int16Array]", Yt = "[object Int32Array]", Jt = "[object Uint8Array]", Kt = "[object Uint8ClampedArray]", Qt = "[object Uint16Array]", Xt = "[object Uint32Array]", n = {};
+n[Ht] = n[_t] = n[qt] = n[Wt] = n[Yt] = n[Jt] = n[Kt] = n[Qt] = n[Xt] = !0;
+n[wt] = n[zt] = n[Zt] = n[Bt] = n[Gt] = n[Tt] = n[Nt] = n[It] = n[Lt] = n[Vt] = n[Dt] = n[Mt] = n[Rt] = n[Ut] = n[Pt] = !1;
+function er(e) {
+  return S(e) && ce(e.length) && !!n[f(e)];
+}
+function tr(e) {
+  return function(t) {
+    return e(t);
+  };
+}
+var pe = typeof exports == "object" && exports && !exports.nodeType && exports, v = pe && typeof module == "object" && module && !module.nodeType && module, rr = v && v.exports === pe, k = rr && oe.process, ir = function() {
+  try {
+    var e = v && v.require && v.require("util").types;
+    return e || k && k.binding && k.binding("util");
+  } catch {
+  }
+}();
+const G = ir;
+var H = G && G.isTypedArray, nr = H ? tr(H) : er;
+const or = nr;
+function sr(e, t) {
+  return function(r) {
+    return e(t(r));
+  };
+}
+var ar = sr(Object.keys, Object);
+const lr = ar;
+var ur = Object.prototype, cr = ur.hasOwnProperty;
+function dr(e) {
+  if (!de(e))
+    return lr(e);
+  var t = [];
+  for (var r in Object(e))
+    cr.call(e, r) && r != "constructor" && t.push(r);
+  return t;
+}
+var fr = y(a, "Map");
+const $ = fr;
+function be(e) {
+  return e == null ? "" : le(e);
+}
+function hr(e, t, r, i) {
+  var o = -1, h = e == null ? 0 : e.length;
+  for (i && h && (r = e[++o]); ++o < h; )
+    r = t(r, e[o], o, e);
+  return r;
+}
+function pr(e) {
   return function(t) {
     return e == null ? void 0 : e[t];
   };
 }
-var Ee = {
+var br = {
+  // Latin-1 Supplement block.
   À: "A",
   Á: "A",
   Â: "A",
@@ -164,6 +284,7 @@ var Ee = {
   Þ: "Th",
   þ: "th",
   ß: "ss",
+  // Latin Extended-A block.
   Ā: "A",
   Ă: "A",
   Ą: "A",
@@ -292,147 +413,527 @@ var Ee = {
   œ: "oe",
   ŉ: "'n",
   ſ: "s"
-}, Fe = me(Ee);
-const Ae = Fe;
-var Se = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, ke = "\\u0300-\\u036f", De = "\\ufe20-\\ufe2f", $e = "\\u20d0-\\u20ff", je = ke + De + $e, xe = "[" + je + "]", Be = RegExp(xe, "g");
-function Oe(e) {
-  return e = x(e), e && e.replace(Se, Ae).replace(Be, "");
+}, vr = pr(br);
+const yr = vr;
+var mr = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, gr = "\\u0300-\\u036f", jr = "\\ufe20-\\ufe2f", Cr = "\\u20d0-\\u20ff", Sr = gr + jr + Cr, Ar = "[" + Sr + "]", xr = RegExp(Ar, "g");
+function kr(e) {
+  return e = be(e), e && e.replace(mr, yr).replace(xr, "");
 }
-var we = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
-function ze(e) {
-  return e.match(we) || [];
+var Er = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
+function Or(e) {
+  return e.match(Er) || [];
 }
-var Le = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
-function Te(e) {
-  return Le.test(e);
+var $r = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+function Fr(e) {
+  return $r.test(e);
 }
-var B = "\\ud800-\\udfff", Ie = "\\u0300-\\u036f", Ne = "\\ufe20-\\ufe2f", Me = "\\u20d0-\\u20ff", Re = Ie + Ne + Me, O = "\\u2700-\\u27bf", w = "a-z\\xdf-\\xf6\\xf8-\\xff", Ue = "\\xac\\xb1\\xd7\\xf7", Ve = "\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf", He = "\\u2000-\\u206f", Ze = " \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000", z = "A-Z\\xc0-\\xd6\\xd8-\\xde", Ge = "\\ufe0e\\ufe0f", L = Ue + Ve + He + Ze, T = "['’]", F = "[" + L + "]", Pe = "[" + Re + "]", I = "\\d+", Ye = "[" + O + "]", N = "[" + w + "]", M = "[^" + B + L + I + O + w + z + "]", qe = "\\ud83c[\\udffb-\\udfff]", Je = "(?:" + Pe + "|" + qe + ")", Ke = "[^" + B + "]", R = "(?:\\ud83c[\\udde6-\\uddff]){2}", U = "[\\ud800-\\udbff][\\udc00-\\udfff]", n = "[" + z + "]", We = "\\u200d", A = "(?:" + N + "|" + M + ")", Qe = "(?:" + n + "|" + M + ")", S = "(?:" + T + "(?:d|ll|m|re|s|t|ve))?", k = "(?:" + T + "(?:D|LL|M|RE|S|T|VE))?", V = Je + "?", H = "[" + Ge + "]?", Xe = "(?:" + We + "(?:" + [Ke, R, U].join("|") + ")" + H + V + ")*", _e = "\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])", et = "\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])", tt = H + V + Xe, ut = "(?:" + [Ye, R, U].join("|") + ")" + tt, it = RegExp([
-  n + "?" + N + "+" + S + "(?=" + [F, n, "$"].join("|") + ")",
-  Qe + "+" + k + "(?=" + [F, n + A, "$"].join("|") + ")",
-  n + "?" + A + "+" + S,
-  n + "+" + k,
-  et,
-  _e,
-  I,
-  ut
+var ve = "\\ud800-\\udfff", wr = "\\u0300-\\u036f", zr = "\\ufe20-\\ufe2f", Br = "\\u20d0-\\u20ff", Tr = wr + zr + Br, ye = "\\u2700-\\u27bf", me = "a-z\\xdf-\\xf6\\xf8-\\xff", Nr = "\\xac\\xb1\\xd7\\xf7", Ir = "\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf", Lr = "\\u2000-\\u206f", Vr = " \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000", ge = "A-Z\\xc0-\\xd6\\xd8-\\xde", Dr = "\\ufe0e\\ufe0f", je = Nr + Ir + Lr + Vr, Ce = "['’]", _ = "[" + je + "]", Mr = "[" + Tr + "]", Se = "\\d+", Rr = "[" + ye + "]", Ae = "[" + me + "]", xe = "[^" + ve + je + Se + ye + me + ge + "]", Ur = "\\ud83c[\\udffb-\\udfff]", Pr = "(?:" + Mr + "|" + Ur + ")", Zr = "[^" + ve + "]", ke = "(?:\\ud83c[\\udde6-\\uddff]){2}", Ee = "[\\ud800-\\udbff][\\udc00-\\udfff]", c = "[" + ge + "]", Gr = "\\u200d", q = "(?:" + Ae + "|" + xe + ")", Hr = "(?:" + c + "|" + xe + ")", W = "(?:" + Ce + "(?:d|ll|m|re|s|t|ve))?", Y = "(?:" + Ce + "(?:D|LL|M|RE|S|T|VE))?", Oe = Pr + "?", $e = "[" + Dr + "]?", _r = "(?:" + Gr + "(?:" + [Zr, ke, Ee].join("|") + ")" + $e + Oe + ")*", qr = "\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])", Wr = "\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])", Yr = $e + Oe + _r, Jr = "(?:" + [Rr, ke, Ee].join("|") + ")" + Yr, Kr = RegExp([
+  c + "?" + Ae + "+" + W + "(?=" + [_, c, "$"].join("|") + ")",
+  Hr + "+" + Y + "(?=" + [_, c + q, "$"].join("|") + ")",
+  c + "?" + q + "+" + W,
+  c + "+" + Y,
+  Wr,
+  qr,
+  Se,
+  Jr
 ].join("|"), "g");
-function st(e) {
-  return e.match(it) || [];
+function Qr(e) {
+  return e.match(Kr) || [];
 }
-function nt(e, t, u) {
-  return e = x(e), t = u ? void 0 : t, t === void 0 ? Te(e) ? st(e) : ze(e) : e.match(t) || [];
+function Xr(e, t, r) {
+  return e = be(e), t = r ? void 0 : t, t === void 0 ? Fr(e) ? Qr(e) : Or(e) : e.match(t) || [];
 }
-var rt = "['’]", at = RegExp(rt, "g");
-function ot(e) {
+var ei = "['’]", ti = RegExp(ei, "g");
+function ri(e) {
   return function(t) {
-    return ye(nt(Oe(t).replace(at, "")), e, "");
+    return hr(Xr(kr(t).replace(ti, "")), e, "");
   };
 }
-var lt = ot(function(e, t, u) {
-  return e + (u ? "-" : "") + t.toLowerCase();
+var ii = y(a, "DataView");
+const F = ii;
+var ni = y(a, "Promise");
+const w = ni;
+var oi = y(a, "Set");
+const z = oi;
+var J = "[object Map]", si = "[object Object]", K = "[object Promise]", Q = "[object Set]", X = "[object WeakMap]", ee = "[object DataView]", ai = u(F), li = u($), ui = u(w), ci = u(z), di = u(O), l = f;
+(F && l(new F(new ArrayBuffer(1))) != ee || $ && l(new $()) != J || w && l(w.resolve()) != K || z && l(new z()) != Q || O && l(new O()) != X) && (l = function(e) {
+  var t = f(e), r = t == si ? e.constructor : void 0, i = r ? u(r) : "";
+  if (i)
+    switch (i) {
+      case ai:
+        return ee;
+      case li:
+        return J;
+      case ui:
+        return K;
+      case ci:
+        return Q;
+      case di:
+        return X;
+    }
+  return t;
 });
-const Z = lt;
-function b(e, t, u = "-") {
-  const i = String(t).replace(new RegExp(`^${e}${u}?`), "");
+const fi = l;
+var hi = "[object Map]", pi = "[object Set]", bi = Object.prototype, vi = bi.hasOwnProperty;
+function te(e) {
+  if (e == null)
+    return !0;
+  if (mt(e) && (ae(e) || typeof e == "string" || typeof e.splice == "function" || Ft(e) || or(e) || xt(e)))
+    return !e.length;
+  var t = fi(e);
+  if (t == hi || t == pi)
+    return !e.size;
+  if (de(e))
+    return !dr(e).length;
+  for (var r in e)
+    if (vi.call(e, r))
+      return !1;
+  return !0;
+}
+var yi = ri(function(e, t, r) {
+  return e + (r ? "-" : "") + t.toLowerCase();
+});
+const A = yi;
+function re(e, t, r = "-") {
+  const i = String(t).replace(new RegExp(`^${e}${r}?`), "");
   return [
-    Z(i),
+    A(i),
     e
-  ].filter((s) => !!s).join(u);
+  ].filter((o) => !!o).join(r);
 }
-function D(e) {
-  return !Array.isArray(e) && typeof e == "object";
-}
-function dt(e) {
-  return e === void 0;
-}
-const ht = C({
+const mi = C({
   directives: {
-    bindEvents: {
-      beforeMount(e, t) {
-        var u, i;
-        (i = (u = t.instance) == null ? void 0 : u.bindEvents) == null || i.call(u, e);
-      }
+    bindEvents(e, t) {
+      var r, i;
+      (i = (r = t.instance) == null ? void 0 : r.bindEvents) == null || i.call(r, e);
     }
   },
   mixins: [
-    W
+    ne
   ],
   inheritAttrs: !1,
   props: {
+    /**
+     * Show type activity indicator.
+     */
     activity: {
       type: Boolean,
       default: !1
     },
+    /**
+     * Animate floating labels inside the input.
+     */
     animated: {
       type: Boolean,
-      default: () => c("animated", !1)
+      default: () => s("animated", !1)
     },
-    nativeEvents: {
-      type: Array,
-      default() {
-        return ["focus", "blur", "change", "click", "keypress", "keyup", "keydown", "progress", "paste"];
-      }
+    /**
+     * Additional classes assigned to the control element. These do not
+     * override any of the classes assigned by the FormControl.
+     */
+    controlClass: {
+      type: [Array, Object, String],
+      default: void 0
     },
-    defaultControlClass: {
-      type: String,
-      default: () => c("defaultControlClass", "form-control")
-    },
+    /**
+     * An inline field validation error.
+     */
     error: {
       type: [String, Array, Boolean],
       default: void 0
     },
+    /**
+     * An inline field validation errors passed as object with key/value
+     * pairs. If errors passed as an object, the form name will be used for
+     * the key.
+     */
     errors: {
       type: [Array, Object, Boolean],
       default() {
         return {};
       }
     },
+    /**
+     * Some feedback to add to the field once the field is successfully
+     * valid.
+     */
     feedback: {
       type: [String, Array],
       default: void 0
     },
+    /**
+     * The primary class assigned to the form control.
+     */
+    formControlClass: {
+      type: [Array, Object, String],
+      default: () => s("controlClass", "form-control")
+    },
+    /**
+     * Add form-group wrapper to input.
+     */
     group: {
       type: Boolean,
-      default: () => c("group", !0)
+      default: () => s("group", !0)
     },
+    /**
+     * Some instructions to appear under the field label.
+     */
     helpText: {
       type: [Number, String],
       default: void 0
     },
-    hideLabel: Boolean,
+    /**
+     * The activity indicator type.
+     */
     indicator: {
-      type: [String, Boolean],
-      default: () => c("indicator", "spinner")
+      type: [Object, String, Boolean],
+      default: () => s("indicator", "spinner")
     },
+    /**
+     * The activity indicator size.
+     */
     indicatorSize: {
       type: String,
       default: void 0
     },
-    inline: Boolean,
+    /**
+     * Force the input to be invalid.
+     */
     invalid: Boolean,
+    /**
+     * The value of label element. If no value, no label will appear.
+     */
     label: {
       type: [Number, String],
       default: void 0
     },
+    /**
+     * The default label class assigned to the label element.
+     */
     labelClass: {
       type: [Object, String],
-      default: () => c("labelClass", "form-label")
+      default: () => s("labelClass", "form-label")
     },
+    /**
+     * The model default value.
+     */
     modelValue: {
+      type: [Number, String, Array, Object],
       default: void 0
     },
-    pill: Boolean,
+    /**
+     * Should the control look like plaintext.
+     */
     plaintext: Boolean,
+    /**
+     * The size of the form control.
+     */
     size: {
       type: String,
       default: void 0
     },
+    /**
+     * Force the input to be valid.
+     */
+    valid: Boolean
+  },
+  emits: [
+    "focus",
+    "blur",
+    "change",
+    "click",
+    "keypress",
+    "keyup",
+    "keydown",
+    "progress",
+    "paste",
+    "update:modelValue"
+  ],
+  data() {
+    return {
+      // currentValue: this.modelValue,
+      hasChanged: !1,
+      hasFocus: !1,
+      isDirty: !1,
+      isEmpty: te(this.modelValue)
+    };
+  },
+  computed: {
+    model: {
+      get() {
+        return this.modelValue;
+      },
+      set(e) {
+        this.hasChanged = !0, this.isEmpty = te(e), this.$emit("update:modelValue", e);
+      }
+    },
+    id() {
+      return this.$attrs.id || Math.random().toString(36).slice(2);
+    },
+    componentName() {
+      return this.$options.name;
+    },
+    formGroupClasses() {
+      return Object.assign({
+        animated: this.animated,
+        "form-group": this.group,
+        "has-activity": this.activity,
+        "has-changed": this.hasChanged,
+        "has-focus": this.hasFocus,
+        "has-icon": !!this.$slots.icon,
+        "is-dirty": this.isDirty,
+        "is-empty": this.isEmpty,
+        "is-invalid": !!(this.invalid || this.invalidFeedback),
+        "is-valid": !!(this.valid || this.validFeedback),
+        [this.$attrs.class]: !!this.$attrs.class,
+        [this.size && re(this.size, this.componentName)]: !!this.size
+      }, !!this.componentName && {
+        [A(this.componentName)]: !0
+      });
+    },
+    controlAttributes() {
+      return Object.assign({}, this.$attrs, {
+        id: this.id,
+        class: this.controlClasses,
+        value: this.modelValue
+      });
+    },
+    controlClasses() {
+      return Object.assign({
+        [this.controlClass]: !!this.controlClass,
+        [this.controlSizeClass]: !!this.controlSizeClass,
+        [this.formControlClass]: !!this.formControlClass,
+        [this.plaintextClass]: this.plaintext,
+        "form-control-icon": !!this.$slots.icon,
+        "is-valid": !!(this.valid || this.validFeedback),
+        "is-invalid": !!(this.invalid || this.invalidFeedback)
+      }, this.shadowableClass);
+    },
+    controlSizeClass() {
+      return re(this.size, this.formControlClass);
+    },
+    invalidFeedback() {
+      if (this.error === "")
+        return null;
+      if (this.error)
+        return this.error;
+      const e = this.getFieldErrors();
+      return Array.isArray(e) ? e.filter((t) => t && typeof t == "string").join("<br>") : e;
+    },
+    validFeedback() {
+      return Array.isArray(this.feedback) ? this.feedback.join("<br>") : this.feedback;
+    },
+    plaintextClass() {
+      return "form-control-plaintext";
+    }
+  },
+  // watch: {
+  //     currentValue(value) {
+  //         this.hasChanged = true;
+  //         this.isEmpty = isEmpty(value);
+  //         this.$emit('update:modelValue', this.value);
+  //     }
+  // },
+  methods: {
+    bindEvents(e) {
+      for (const t of this.$options.emits)
+        e.addEventListener(t, (r) => {
+          this.$emit(t, r);
+        });
+      e.addEventListener("focus", () => {
+        this.isDirty = !0, this.hasFocus = !0;
+      }), e.addEventListener("blur", () => {
+        this.hasFocus = !1;
+      });
+    },
+    blur() {
+      var e;
+      (e = this.$refs.field) == null || e.blur();
+    },
+    focus() {
+      var e;
+      (e = this.$refs.field) == null || e.focus();
+    },
+    getFieldErrors() {
+      let e = this.error || this.errors;
+      return this.errors && !Array.isArray(this.errors) && (e = this.errors[this.$attrs.name || this.$attrs.id]), !e || Array.isArray(e) || B(e) ? e : [e];
+    }
+  }
+});
+function E(e, t, r = "-") {
+  const i = String(t).replace(new RegExp(`^${e}${r}?`), "");
+  return [
+    A(i),
+    e
+  ].filter((o) => !!o).join(r);
+}
+function ie(e) {
+  return !Array.isArray(e) && typeof e == "object";
+}
+C({
+  directives: {
+    bindEvents: {
+      beforeMount(e, t) {
+        var r, i;
+        (i = (r = t.instance) == null ? void 0 : r.bindEvents) == null || i.call(r, e);
+      }
+    }
+  },
+  mixins: [
+    ne
+  ],
+  inheritAttrs: !1,
+  props: {
+    modelValue: {
+      default: void 0
+    },
+    /**
+     * Show type activity indicator.
+     */
+    activity: {
+      type: Boolean,
+      default: !1
+    },
+    /**
+     * Animate floating labels inside the input.
+     */
+    animated: {
+      type: Boolean,
+      default: () => s("animated", !1)
+    },
+    /**
+     * An array of event names that correlate with callback functions.
+     */
+    nativeEvents: {
+      type: Array,
+      default() {
+        return ["focus", "blur", "change", "click", "keypress", "keyup", "keydown", "progress", "paste"];
+      }
+    },
+    /**
+     * The default class name assigned to the control element.
+     */
+    defaultControlClass: {
+      type: String,
+      default: () => s("defaultControlClass", "form-control")
+    },
+    /**
+     * An inline field validation error.
+     */
+    error: {
+      type: [String, Array, Boolean],
+      default: void 0
+    },
+    /**
+     * An inline field validation errors passed as object with key/value
+     * pairs. If errors passed as an object, the form name will be used for
+     * the key.
+     */
+    errors: {
+      type: [Array, Object, Boolean],
+      default() {
+        return {};
+      }
+    },
+    /**
+     * Some feedback to add to the field once the field is successfully
+     * valid.
+     */
+    feedback: {
+      type: [String, Array],
+      default: void 0
+    },
+    /**
+     * Add form-group wrapper to input.
+     */
+    group: {
+      type: Boolean,
+      default: () => s("group", !0)
+    },
+    /**
+     * Some instructions to appear under the field label.
+     */
+    helpText: {
+      type: [Number, String],
+      default: void 0
+    },
+    /**
+     * Hide the label for browsers, but leave it for screen readers.
+     */
+    hideLabel: Boolean,
+    /**
+     * The activity indicator type.
+     */
+    indicator: {
+      type: [String, Boolean],
+      default: () => s("indicator", "spinner")
+    },
+    /**
+     * The activity indicator size.
+     */
+    indicatorSize: {
+      type: String,
+      default: void 0
+    },
+    /**
+     * Display the form field inline.
+     */
+    inline: Boolean,
+    /**
+     * The invalid property.
+     */
+    invalid: Boolean,
+    /**
+     * The value of label element. If no value, no label will appear.
+     */
+    label: {
+      type: [Number, String],
+      default: void 0
+    },
+    /**
+     * The default label class assigned to the label element.
+     */
+    labelClass: {
+      type: [Object, String],
+      default: () => s("labelClass", "form-label")
+    },
+    /**
+     * Should the control look like a pill.
+     */
+    pill: Boolean,
+    /**
+     * Should the control look like plaintext.
+     */
+    plaintext: Boolean,
+    /**
+     * The size of the form control.
+     */
+    size: {
+      type: String,
+      default: void 0
+    },
+    /**
+     * Additional margin/padding classes for fine control of spacing.
+     */
     spacing: {
       type: String,
       default: void 0
     },
+    /**
+     * The valid property.
+     */
     valid: Boolean
   },
+  emits: [
+    "blur",
+    "change",
+    "click",
+    "focus",
+    "keydown",
+    "keypress",
+    "keyup",
+    "update:modelValue"
+  ],
   data() {
     return {
       defaultEmpty: !1,
@@ -452,7 +953,8 @@ const ht = C({
       return Object.fromEntries(
         Object.entries(this.$attrs).concat([
           ["id", this.id],
-          ["class", this.controlClasses]
+          ["class", this.controlClasses],
+          ["value", this.modelValue]
         ])
       );
     },
@@ -460,15 +962,15 @@ const ht = C({
       return this.defaultControlClass;
     },
     controlSizeClass() {
-      return b(this.size, this.controlClass);
+      return E(this.size, this.controlClass);
     },
     formGroupClasses() {
       return Object.assign({
-        [this.size && b(this.size, this.componentName)]: !!this.size,
+        [this.size && E(this.size, this.componentName)]: !!this.size,
         animated: this.animated,
         "default-empty": this.defaultEmpty,
         "form-group": this.group,
-        [this.size && b(this.size, "form-group")]: !!this.size,
+        [this.size && E(this.size, "form-group")]: !!this.size,
         "has-activity": this.activity,
         "has-changed": this.hasChanged,
         "has-focus": this.hasFocus,
@@ -479,7 +981,7 @@ const ht = C({
         [this.$attrs.class]: !!this.$attrs.class,
         [this.$attrs.id]: !!this.$attrs.id
       }, !!this.componentName && {
-        [Z(this.componentName)]: !0
+        [A(this.componentName)]: !0
       });
     },
     controlClasses() {
@@ -525,10 +1027,10 @@ const ht = C({
   },
   methods: {
     bindEvents(e, t) {
-      var u;
+      var r;
       t || (t = this.onInput);
-      const i = e instanceof HTMLSelectElement ? (u = e.querySelectorAll("option")) == null ? void 0 : u[e.selectedIndex] : null;
-      dt(this.modelValue) ? i && (e.value = i == null ? void 0 : i.value) : e.value = this.modelValue, e.value && t(e.value), this.hasChanged = !!e.value, this.isEmpty = !e.value, e.addEventListener("focus", () => {
+      const i = e instanceof HTMLSelectElement ? (r = e.querySelectorAll("option")) == null ? void 0 : r[e.selectedIndex] : null;
+      i && (e.value = i == null ? void 0 : i.value), e.value && t(e.value), this.hasChanged = !!e.value, this.isEmpty = !e.value, e.addEventListener("focus", () => {
         this.hasFocus = !0;
       }), e.addEventListener("blur", () => {
         this.hasFocus = !1;
@@ -537,9 +1039,9 @@ const ht = C({
       }), e.addEventListener(
         e.tagName === "SELECT" ? "change" : "input",
         () => t(e.value)
-      ), this.nativeEvents.forEach((s) => {
-        e.addEventListener(s, (a) => {
-          this.$emit(s, a);
+      ), this.nativeEvents.forEach((o) => {
+        e.addEventListener(o, (h) => {
+          this.$emit(o, h);
         });
       });
     },
@@ -556,7 +1058,7 @@ const ht = C({
     },
     getFieldErrors() {
       let e = this.error || this.errors;
-      return this.errors && D(this.errors) && (e = this.errors[this.$attrs.name || this.$attrs.id]), !e || Array.isArray(e) || D(e) ? e : [e];
+      return this.errors && ie(this.errors) && (e = this.errors[this.$attrs.name || this.$attrs.id]), !e || Array.isArray(e) || ie(e) ? e : [e];
     },
     shouldChangeOnFocus() {
       return !this.getInputField().readOnly;
@@ -565,11 +1067,10 @@ const ht = C({
       this.$emit("update:modelValue", e);
     }
   }
-}), ct = C({
+});
+const gi = C({
   name: "RadioField",
-  mixins: [
-    ht
-  ],
+  extends: mi,
   props: {
     /**
      * The checked values
@@ -578,112 +1079,107 @@ const ht = C({
      */
     checked: Boolean,
     /**
-     * The checked value
+     * Add form-group wrapper to input.
+     */
+    group: {
+      type: Boolean,
+      default: !1
+    },
+    /**
+     * The checked values.
+     *
+     * @property any
+     */
+    value: {
+      default: void 0
+    },
+    /**
+     * The class name assigned to the control element
      *
      * @property String
      */
-    checkedValue: [Boolean, Number, String, Object],
-    /**
-     * The default class name assigned to the control element
-     *
-     * @param {String}
-     * @default 'form-check'
-     */
-    defaultControlClass: {
+    formControlClass: {
       type: String,
-      default: "form-check"
+      default: "form-check-input"
     },
     /**
      * Display the form field and label inline
      *
      * @property Function
      */
-    inline: {
-      type: Boolean
+    inline: Boolean,
+    /**
+     * The default label class assigned to the label element.
+     */
+    labelClass: {
+      type: [Object, String],
+      default: "form-check-label"
     }
   },
+  // data: () => ({
+  //     checkedValues: []
+  // }),
   computed: {
-    controlClasses() {
-      return {
-        [this.spacing]: !!this.spacing,
-        [this.inputClass]: !!this.inputClass,
-        ["is-valid"]: !!(this.valid || this.validFeedback),
-        ["is-invalid"]: !!(this.invalid || this.invalidFeedback)
-      };
-    },
-    computedLabelClass() {
-      return `${this.controlClass}-label`;
-    },
-    hash() {
-      return Math.random().toString(20).substr(2, 6);
-    },
-    inputClass() {
-      return `${this.controlClass}-input`;
-    },
     inlineClass() {
-      return this.inline && `${this.controlClass}-inline`;
-    }
-  },
-  methods: {
-    update(e) {
-      this.$emit("update:modelValue", e.target.value);
+      return this.inline && "form-check-inline";
     }
   }
-}), ft = (e, t) => {
-  const u = e.__vccOpts || e;
-  for (const [i, s] of t)
-    u[i] = s;
-  return u;
-}, pt = ["id", "checked"], vt = ["for", "innerHTML"], bt = ["innerHTML"], Ct = ["innerHTML"];
-function gt(e, t, u, i, s, a) {
-  const G = P("bind-events");
-  return l(), d("div", {
-    class: g(e.formGroupClasses, { [e.controlClass]: !!e.controlClass, [e.inlineClass]: e.inline })
+}), ji = (e, t) => {
+  const r = e.__vccOpts || e;
+  for (const [i, o] of t)
+    r[i] = o;
+  return r;
+}, Ci = ["id", "value"], Si = ["for"], Ai = ["innerHTML"], xi = ["innerHTML"];
+function ki(e, t, r, i, o, h) {
+  const Fe = ze("bind-events");
+  return m(), g("div", {
+    class: T(["form-check", { [e.inlineClass]: e.inline, ...e.formGroupClasses }])
   }, [
-    Y(q("input", J({
+    Be(N("input", Te({
       id: e.id,
-      ref: "field"
+      ref: "field",
+      "onUpdate:modelValue": t[0] || (t[0] = (we) => e.model = we)
     }, e.controlAttributes, {
-      type: "radio",
-      checked: e.checkedValue === e.checked,
-      "on:update:modelValue": t[0] || (t[0] = (...o) => e.update && e.update(...o)),
-      onChange: t[1] || (t[1] = (...o) => e.update && e.update(...o))
-    }), null, 16, pt), [
-      [G]
+      value: e.value,
+      type: "radio"
+    }), null, 16, Ci), [
+      [Ne, e.model],
+      [Fe]
     ]),
-    p(e.$slots, "label", {}, () => [
-      e.label ? (l(), d("label", {
-        key: 0,
+    j(e.$slots, "label", {}, () => [
+      N("label", {
         ref: "label",
-        for: e.id,
-        class: g(e.labelClass),
-        onClick: t[2] || (t[2] = (...o) => e.focus && e.focus(...o)),
-        innerHTML: e.label
-      }, null, 10, vt)) : v("", !0)
+        class: T({ [e.labelClass]: !0 }),
+        for: e.id
+      }, [
+        j(e.$slots, "default", {}, () => [
+          Ie(I(e.label), 1)
+        ])
+      ], 10, Si)
     ]),
-    p(e.$slots, "feedback", {}, () => [
-      e.invalidFeedback ? (l(), d("div", {
+    j(e.$slots, "feedback", {}, () => [
+      e.invalidFeedback ? (m(), g("div", {
         key: 0,
         class: "invalid-feedback",
         invalid: "",
         innerHTML: e.invalidFeedback
-      }, null, 8, bt)) : e.validFeedback ? (l(), d("div", {
+      }, null, 8, Ai)) : e.validFeedback ? (m(), g("div", {
         key: 1,
         class: "valid-feedback",
         valid: "",
         innerHTML: e.validFeedback
-      }, null, 8, Ct)) : v("", !0)
+      }, null, 8, xi)) : L("", !0)
     ]),
-    p(e.$slots, "help", {}, () => [
-      e.helpText ? (l(), d("small", {
+    j(e.$slots, "help", {}, () => [
+      e.helpText ? (m(), g("small", {
         key: 0,
         ref: "help"
-      }, K(e.helpText), 513)) : v("", !0)
+      }, I(e.helpText), 513)) : L("", !0)
     ])
   ], 2);
 }
-const mt = /* @__PURE__ */ ft(ct, [["render", gt]]);
+const Oi = /* @__PURE__ */ ji(gi, [["render", ki]]);
 export {
-  mt as RadioField
+  Oi as RadioField
 };
 //# sourceMappingURL=radio-field.js.map
