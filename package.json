@@ -48,17 +48,14 @@
   },
   "homepage": "https://github.com/vue-interface/radio-field/docs",
   "dependencies": {
-    "@vue-interface/form-control": "^1.0.0-beta.9"
+    "@vue-interface/form-control": "^1.0.0-beta.10"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-babel": "^6.0.3",
     "@vitejs/plugin-vue": "^4.0.0",
     "autoprefixer": "^10.4.2",
-    "babel-eslint": "^10.1.0",
-    "babel-preset-vue": "^2.0.2",
     "change-case": "^4.1.2",
     "eslint": "^8.28.0",
     "eslint-plugin-vue": "^9.8.0",
