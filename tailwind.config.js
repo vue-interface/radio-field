@@ -1,6 +1,6 @@
-module.exports = {
+export default {
     content: [
-        "./index.html",
+        './index.html',
         './demo/**/*',
     ],
     theme: {

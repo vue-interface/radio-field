@@ -30,6 +30,7 @@ export default defineComponent({
          * @property any
          */
         value: {
+            type: [String, Number, Boolean, Array, Object],
             default: undefined
         },
 
@@ -54,7 +55,7 @@ export default defineComponent({
          * The default label class assigned to the label element.
          */
         labelClass: {
-            type: [Object, String],
+            type: String,
             default: 'form-check-label'
         },
     },
