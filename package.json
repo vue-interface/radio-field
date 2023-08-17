@@ -22,6 +22,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vue-tsc",
+    "watch": "vite build --watch -m development",
     "preview": "vite preview"
   },
   "repository": {
