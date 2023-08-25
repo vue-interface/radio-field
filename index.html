@@ -7,26 +7,15 @@
     <title>RadioField</title>
 </head>
 
-<body>
+<body class="dark:bg-neutral-900 dark:text-white">
     <form id="app" class="container mx-auto mb-6">
         <h1 class="text-4xl mb-6">radio-field</h1>
-
-        <h3 class="text-2xl mb-3">Block Layout</h3>
-
-        <div class="mb-3">colors: {{ colors }}</div>
 
         <radio-field v-model="colors" label="Red" value="red"></radio-field>
         <radio-field v-model="colors" label="Green" value="green"></radio-field>
         <radio-field v-model="colors" label="Blue" value="blue"></radio-field>
         <radio-field v-model="colors" label="Yellow" value="yellow"></radio-field>
         <radio-field v-model="colors" label="Pink" value="pink" disabled>Pink (Readonly)</radio-field>
-
-        <h5 class="text-2xl mt-6 mb-3">Inline Layout</h5>
-
-        <radio-field v-model="colors" label="Red" value="red" :inline="true"></radio-field>
-        <radio-field v-model="colors" label="Green" value="green" :inline="true"></radio-field>
-        <radio-field v-model="colors" label="Blue" value="blue" :inline="true"></radio-field>
-        <radio-field v-model="colors" value="yellow" readonly :inline="true">Yellow (Disabled)</radio-field>
 
         <hr class="my-6">
 
@@ -40,10 +29,17 @@
 
         <h3 class="text-3xl mb-3">Validation</h3>
 
-        <radio-field label="Single Inline Error" required error="This is an inline error." custom></radio-field>
-        <radio-field name="multiple" label="Multiple Errors From Object"
-            :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"
-            custom></radio-field>
+        <radio-field label="Empty Array of Errors" value="1" :errors="[]" class="mb-3"></radio-field>
+
+        <radio-field label="Single Inline Error" value="1" class="mb-3" error="This is an inline error."></radio-field>
+
+        <radio-field name="multiple" value="1" class="mb-3" label="Multiple Errors From Object" :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"></radio-field>
+    
+        <radio-field label="Valid Field" value="1" valid class="mb-3"></radio-field>
+
+        <radio-field label="Valid Field with Feedback" value="1" valid feedback="This is some success message." class="mb-3"></radio-field>
+        
+        <radio-field label="Valid Field with Array of Feedback" value="1" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></radio-field>
     </form>
 
     <script type="module">

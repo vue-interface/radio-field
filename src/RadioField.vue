@@ -17,14 +17,6 @@ export default defineComponent({
         checked: Boolean,
 
         /**
-         * Add form-group wrapper to input.
-         */
-        group: {
-            type: Boolean,
-            default: false
-        },
-
-        /**
          * The checked values.
          *
          * @property any
@@ -41,7 +33,7 @@ export default defineComponent({
          */
         formControlClass: {
             type: String,
-            default: 'form-check-input'
+            default: 'form-check'
         },
 
         /**
@@ -55,28 +47,18 @@ export default defineComponent({
          * The default label class assigned to the label element.
          */
         labelClass: {
-            type: String,
+            type: [Object, String],
             default: 'form-check-label'
         },
     },
 
-    // data: () => ({
-    //     checkedValues: []
-    // }),
-
-    computed: {
-        inlineClass() {
-            return this.inline && 'form-check-inline';
-        }
-    }
-    
 });
 </script>
 
 <template>
     <div
         class="form-check"
-        :class="{ [inlineClass]: inline, ...formGroupClasses }">
+        :class="{ ...formGroupClasses }">
         <input
             :id="id"
             ref="field"
@@ -89,7 +71,7 @@ export default defineComponent({
         <slot name="label">
             <label
                 ref="label"
-                :class="{ [labelClass]: true }"
+                :class="labelClass"
                 :for="id">
                 <slot>
                     {{ label }}
