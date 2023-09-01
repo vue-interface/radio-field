@@ -1,78 +1,70 @@
-<script lang="ts">
-import { FormControl } from '@vue-interface/form-control';
-import { defineComponent } from 'vue';
+<script setup lang="ts" generic="T, V">
+import type { CheckedFormControlProps, FormControlSlots } from '@vue-interface/form-control';
+import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
+import { computed, onMounted, ref } from 'vue';
 
-export default defineComponent({
+defineOptions({
+    inheritAttrs: false
+});
 
-    name: 'RadioField',
+defineSlots<Exclude<FormControlSlots<T>, 'activity'>>();
 
-    extends: FormControl,
+const emit = defineEmits<{
+    (e: 'update:modelValue', value: T): void;
+}>();
 
-    props: {
-        /**
-         * The checked values
-         *
-         * @property String
-         */
-        checked: Boolean,
+const props = withDefaults(defineProps<CheckedFormControlProps<T, V>>(), {
+    formControlClass: 'form-check',
+    labelClass: 'form-check-label'
+});
 
-        /**
-         * The checked values.
-         *
-         * @property any
-         */
-        value: {
-            type: [String, Number, Boolean, Array, Object],
-            default: undefined
-        },
+const model = computed({
+    get: () => props.modelValue,
+    set: (value) => emit('update:modelValue', value)
+});
 
-        /**
-         * The class name assigned to the control element
-         *
-         * @property String
-         */
-        formControlClass: {
-            type: String,
-            default: 'form-check'
-        },
+const {
+    controlAttributes,
+    formGroupClasses,
+    onClick,
+    onBlur,
+    onFocus
+} = useFormControl(props, emit, model);
 
-        /**
-         * Display the form field and label inline
-         *
-         * @property Function
-         */
-        inline: Boolean,
+const field = ref<HTMLInputElement>();
 
-        /**
-         * The default label class assigned to the label element.
-         */
-        labelClass: {
-            type: [Object, String],
-            default: 'form-check-label'
-        },
-    },
+onMounted(() => {
+    if(!props.checked) {
+        return;
+    }
 
+    if(!props.modelValue) {  
+        field.value.click();
+    }
+
+    field.value.checked = true;
 });
 </script>
 
 <template>
     <div
-        class="form-check"
-        :class="{ ...formGroupClasses }">
+        class="radio-field"
+        :class="formGroupClasses">
         <input
-            :id="id"
             ref="field"
             v-model="model"
-            v-bind-events
             v-bind="controlAttributes"
+            type="radio"
             :value="value"
-            type="radio">
+            @click="onClick"
+            @blur="onBlur"
+            @focus="onFocus">
 
         <slot name="label">
             <label
                 ref="label"
                 :class="labelClass"
-                :for="id">
+                :for="controlAttributes.id">
                 <slot>
                     {{ label }}
                 </slot>
@@ -81,12 +73,12 @@ export default defineComponent({
 
         <slot
             name="errors"
-            v-bind="{ error, errors, id: $attrs.id, name: $attrs.name }">        
+            v-bind="{ error, errors }">        
             <FormControlErrors
                 v-if="!!(error || errors)"
-                :id="$attrs.id"
+                :id="$attrs.id && String($attrs.id)"
                 v-slot="{ error }"
-                :name="$attrs.name"
+                :name="$attrs.name && String($attrs.name)"
                 :error="error"
                 :errors="errors">
                 <div
@@ -111,7 +103,9 @@ export default defineComponent({
             </FormControlFeedback>
         </slot>
 
-        <slot name="help">
+        <slot
+            name="help"
+            v-bind="{ helpText }">
             <small
                 v-if="helpText"
                 ref="help">

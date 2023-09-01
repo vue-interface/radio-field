@@ -1,7 +1,6 @@
 export default {
     content: [
-        './index.html',
-        './demo/**/*',
+        './index.html'
     ],
     theme: {
         extend: {},

@@ -10,36 +10,53 @@
 <body class="dark:bg-neutral-900 dark:text-white">
     <form id="app" class="container mx-auto mb-6">
         <h1 class="text-4xl mb-6">radio-field</h1>
+        
+        <div class="bg-neutral-100 dark:bg-neutral-800 p-3 mb-4">
+            Value: {{ value }}
+        </div>
 
-        <radio-field v-model="colors" label="Red" value="red"></radio-field>
-        <radio-field v-model="colors" label="Green" value="green"></radio-field>
-        <radio-field v-model="colors" label="Blue" value="blue"></radio-field>
-        <radio-field v-model="colors" label="Yellow" value="yellow"></radio-field>
-        <radio-field v-model="colors" label="Pink" value="pink" disabled>Pink (Readonly)</radio-field>
+        <radio-field v-model="value" name="default" label="Unchecked" value="unchecked"></radio-field>
+        <radio-field v-model="value" name="default" label="Checked" value="checked" checked></radio-field>
+
+        <div class="bg-neutral-100 dark:bg-neutral-800 p-3 my-4">
+            Color: {{ color }}
+        </div>
+
+        <div class="mb-4">
+            <radio-field v-model="color" name="color" label="Red" value="red"></radio-field>
+            <radio-field v-model="color" name="color" label="Green" value="green"></radio-field>
+            <radio-field v-model="color" name="color" label="Blue" value="blue"></radio-field>
+            <radio-field v-model="color" name="color" label="Yellow" value="yellow"></radio-field>
+        </div>
+        
+        <div class="mb-4">
+            <radio-field label="Disabled" value="disabled" disabled></radio-field>
+            <radio-field label="Disabled (checked)" value="disabled_checked" checked disabled></radio-field>
+            <radio-field label="Readonly" value="readonly" readonly></radio-field>
+            <radio-field label="Readonly (checked)" value="readonly_checked" checked readonly></radio-field>
+            <radio-field label="Readonly & Disabled" value="readonly_disabled" readonly disabled></radio-field>
+            <radio-field label="Readonly & Disabled (checked)" value="readonly_disabled_checked" readonly disabled checked></radio-field>
+        </div>
 
         <hr class="my-6">
 
         <h3 class="text-3xl mb-3">Sizes</h3>
 
-        <radio-field name="size[]" size="sm" placeholder="Small">Small</radio-field>
-        <radio-field name="size[]" size="md" placeholder="Medium">Medium</radio-field>
-        <radio-field name="size[]" size="lg" placeholder="Large">Large</radio-field>
+        <radio-field name="size" value="sm" class="radio-field-sm">Small</radio-field>
+        <radio-field name="size" value="md" class="radio-field">Medium</radio-field>
+        <radio-field name="size" value="lg" class="radio-field-lg">Large</radio-field>
 
         <hr class="my-6">
 
         <h3 class="text-3xl mb-3">Validation</h3>
 
-        <radio-field label="Empty Array of Errors" value="1" :errors="[]" class="mb-3"></radio-field>
-
-        <radio-field label="Single Inline Error" value="1" class="mb-3" error="This is an inline error."></radio-field>
-
-        <radio-field name="multiple" value="1" class="mb-3" label="Multiple Errors From Object" :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"></radio-field>
+        <radio-field label="Empty Array of Errors" value="true" :errors="[]" class="mb-3"></radio-field>
+        <radio-field label="Single Inline Error" value="true" class="mb-3" error="This is an inline error."></radio-field>
+        <radio-field name="multiple" value="true" class="mb-3" label="Multiple Errors From Object" :errors="{'multiple': ['This is an inline error #1.', 'This is an inline error #2.']}"></radio-field>
     
-        <radio-field label="Valid Field" value="1" valid class="mb-3"></radio-field>
-
-        <radio-field label="Valid Field with Feedback" value="1" valid feedback="This is some success message." class="mb-3"></radio-field>
-        
-        <radio-field label="Valid Field with Array of Feedback" value="1" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></radio-field>
+        <radio-field label="Valid Field" value="true" valid class="mb-3"></radio-field>
+        <radio-field label="Valid Field with Feedback" value="true" valid feedback="This is some success message." class="mb-3"></radio-field>
+        <radio-field label="Valid Field with Array of Feedback" value="true" valid :feedback="['This is some success message.', 'This is some success message.']" class="mb-3"></radio-field>
     </form>
 
     <script type="module">
@@ -53,7 +70,8 @@
             },
             data() {
                 return {
-                    colors: 'yellow'
+                    value: false,
+                    color: 'yellow'
                 };
             }
         });
