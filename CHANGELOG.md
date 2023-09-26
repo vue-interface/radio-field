@@ -1,3 +1,17 @@
+# [2.0.0-beta.5](https://github.com/vue-interface/radio-field/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2023-09-26)
+
+
+### Bug Fixes
+
+* issues with new form-control ([26e8be1](https://github.com/vue-interface/radio-field/commit/26e8be124423de3195d848e2571489cc3f2b980c))
+* updated to latest form-control ([a8681ec](https://github.com/vue-interface/radio-field/commit/a8681ecf08494fec976111421d675ad0f9a680a5))
+* updated tsconfig ([3ea87d5](https://github.com/vue-interface/radio-field/commit/3ea87d515b892a9c9d05eef56554f16cbd2255ef))
+
+
+### Features
+
+* implemented new form control composable with better TS support ([eecf2e3](https://github.com/vue-interface/radio-field/commit/eecf2e39ea1d82f77f1377ca13f9b2c208e610b6))
+
 # [2.0.0-beta.4](https://github.com/vue-interface/radio-field/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2023-08-25)
 
 
