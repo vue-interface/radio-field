@@ -1,3 +1,10 @@
+# [2.0.0-beta.7](https://github.com/vue-interface/radio-field/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2024-02-29)
+
+
+### Bug Fixes
+
+* updated vite config for ts errors ([077f5f5](https://github.com/vue-interface/radio-field/commit/077f5f53208cb3e32e10aa3db77c14b02c9ca95d))
+
 # [2.0.0-beta.6](https://github.com/vue-interface/radio-field/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2024-02-29)
 
 
