@@ -1,3 +1,11 @@
+# [2.0.0-beta.6](https://github.com/vue-interface/radio-field/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2024-02-29)
+
+
+### Bug Fixes
+
+* emits ([c37208d](https://github.com/vue-interface/radio-field/commit/c37208d519a56820046ad0669e4359fc35af4aa1))
+* issue with field not showing laravel style errors ([2c26213](https://github.com/vue-interface/radio-field/commit/2c26213c314f365f6b07694ea0abbe14dabc621b))
+
 # [2.0.0-beta.5](https://github.com/vue-interface/radio-field/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2023-09-26)
 
 
