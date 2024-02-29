@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T, V">
-import type { CheckedFormControlProps, FormControlSlots } from '@vue-interface/form-control';
+import type { CheckedFormControlProps, FormControlSlots, FormControlEvents } from '@vue-interface/form-control';
 import { FormControlErrors, FormControlFeedback, useFormControl } from '@vue-interface/form-control';
 import { computed, onMounted, ref } from 'vue';
 
@@ -9,9 +9,7 @@ defineOptions({
 
 defineSlots<Exclude<FormControlSlots<T>, 'activity'>>();
 
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: T): void;
-}>();
+const emit = defineEmits<FormControlEvents<T>>();
 
 const props = withDefaults(defineProps<CheckedFormControlProps<T, V>>(), {
     formControlClass: 'form-check',
